@@ -1,0 +1,185 @@
+@import url(/src/routes/om-oss/om-oss.css);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1e325f;
+  height: 100px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.header-name {
+  display: flex;
+  align-items: center;
+}
+.header-name h2 {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  background: linear-gradient(
+    to bottom,
+    #505050 0%,
+    /* dark at top */ #f3f2f2 50%,
+    /* light in the middle */ #707070 100% /* darker at bottom */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.header-logo {
+  margin: 1rem;
+  height: 75px;
+}
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+.nav-button {
+  border: none;
+  background-color: #1e325f;
+  padding: 1rem;
+  font-size: 1.4rem;
+  color: #cfcfcf;
+  font-family: "Cormorant SC", serif;
+  text-decoration: none;
+}
+.nav-button:hover {
+  transform: scale(1.1);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.top-image {
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+  background-image: url("/public/riddareapalle1.png");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 700;
+  position: relative;
+}
+
+.top-image h1 {
+  font-family: "Cinzel", serif;
+  font-size: 4rem;
+  color: white;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.2); /* subtle glow */
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+.info-container {
+  display: flex;
+  background-color: #e2d1b0;
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+
+  z-index: 500;
+  padding: 150px;
+  margin-top: -60px;
+  position: relative;
+}
+.info-box {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  background-image: url("/public/knighttransparent2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 250px;
+}
+.info-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-img {
+  width: 400px;
+  height: 250px;
+  margin: 20px;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
+}
+.info-text {
+  color: #505050;
+}
+.info-text h2 {
+  font-size: 1.7rem;
+  font-family: "Cormorant SC", serif;
+  margin: 10px;
+  color: #242424;
+}
+.info-text p {
+  margin: 10px;
+}
+
+footer {
+  background-color: #1e325f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
+
+  color: #cfcfcf;
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer h3 {
+  font-family: "Cormorant SC", serif;
+  padding: 0.7rem;
+  font-size: 1.4rem;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
