@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import Calendar from 'react-calendar';
+import type { Value } from 'react-calendar/dist/shared/types.js';
 import "react-calendar/dist/Calendar.css";
 import { useMemo, useState } from 'react';
 import{
@@ -8,6 +9,16 @@ import{
 export const Route = createFileRoute('/kalender/')({
   component: RouteComponent,
 })
+
+type ISODateString = `${number}-${number}-${number}`;
+
+type EventItem = {
+  id:string;
+  title: string;
+  date: ISODateString;
+  location?:string;
+  description?:string;
+}
 
 const EVENTS = [
   {
@@ -24,13 +35,13 @@ const EVENTS = [
     location: "Great Hall",
     description: "Intern turnering med publik. Rustning krävs.",
   },
-];
+] as const satisfies readonly EventItem[];
 
-function toKey(date){
+function toKey(date: Date): ISODateString {
   const y = date.getFullYear();
   const m = String(date.getMonth()+1).padStart(2, "0");
   const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
+  return `${y}-${m}-${d}` as ISODateString;
 }
 
 
@@ -56,7 +67,7 @@ const selectedEvents = eventsByDay.get(selectedKey) ?? [];
       </div>
       <div className="w-full bg-[#e2d1b0] min-h-[700px] flex flex-col justify-center items-center mt-4">
         <div className="px-10 py-10 w-full max-w-[500px] flex flex-col items-center text-[#242424] text-center mb-14">
-          <h2 className="text-xl sm:text-2xl font-semibold font-['Cormorant_SC'] mb-2">Upplev Medeltiden med oss!</h2>
+          <h2 className="text-xl sm:text-3xl font-semibold font-['Cormorant_SC'] mb-2">Upplev Medeltiden med oss!</h2>
           <p className="leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -68,7 +79,12 @@ const selectedEvents = eventsByDay.get(selectedKey) ?? [];
     <Calendar
       locale="sv-SE"
       value={selectedDate}
-      onChange={(d) => setSelectedDate(d)}
+      onChange={(value: Value) => {
+        if (value instanceof Date) setSelectedDate(value);
+      else if (Array.isArray(value) && value[0] instanceof Date) setSelectedDate(value[0]);
+    }}
+
+
       tileClassName={({ date, view }) => {
         if (view !== "month") return null;
         return eventsByDay.has(toKey(date)) ? "has-event" : null;
