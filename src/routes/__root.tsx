@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Outlet, createRootRoute, Link } from "@tanstack/react-router";
-import { NavButton } from "@/components/NavButton";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
+
 import { Header } from "@/components/Header";
 export const Route = createRootRoute({
   component: RootComponent,
