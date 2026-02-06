@@ -1,0 +1,115 @@
+
+
+
+.calendar-theme .react-calendar {
+  width: 100%;
+  max-width: 420px; 
+  background:  #f7ecd8; 
+  border: 2px solid rgba(30, 50, 95, 0.35);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  color: #242424;
+
+}
+
+
+.calendar-theme .react-calendar__navigation {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.calendar-theme .react-calendar__navigation button {
+  background: #1e325f;
+  color: #cfcfcf;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-family: "Cinzel", serif;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.calendar-theme .react-calendar__navigation button:hover {
+  transform: scale(1.03);
+  filter: brightness(1.08);
+}
+
+.calendar-theme .react-calendar__navigation button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Weekday headings (Mon, Tue...) */
+.calendar-theme .react-calendar__month-view__weekdays {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: rgba(36, 36, 36, 0.75);
+  margin-bottom: 6px;
+}
+
+.calendar-theme .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+/* Calendar tiles (days) */
+.calendar-theme .react-calendar__tile {
+  border-radius: 10px;
+  padding: 10px 6px;
+  transition: background 0.15s ease, transform 0.1s ease;
+  height: 55px;
+}
+
+/* Hover day */
+.calendar-theme .react-calendar__tile:enabled:hover {
+  background: rgba(30, 50, 95, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Today */
+.calendar-theme .react-calendar__tile--now {
+  background: rgba(80, 80, 80, 0.12);
+  font-weight: 700;
+}
+
+/* Selected day */
+.calendar-theme .react-calendar__tile--active {
+  background: #1e325f;
+  color: #ffffff;
+}
+
+/* Keep selected day on hover consistent */
+.calendar-theme .react-calendar__tile--active:enabled:hover {
+  background: #1e325f;
+  filter: brightness(1.08);
+}
+
+/* Days from neighboring months */
+.calendar-theme .react-calendar__month-view__days__day--neighboringMonth {
+  opacity: 0.45;
+}
+
+
+.calendar-theme .react-calendar__tile > div[aria-label="Event day"] {
+  margin-top: 6px;
+  opacity: 0.95;
+}
+
+/* Days that have events */
+.calendar-theme .react-calendar__tile.has-event {
+  background: rgba(30, 50, 95, 0.25);
+  font-weight: 600;
+}
+
+/* Hover stays nice */
+.calendar-theme .react-calendar__tile.has-event:enabled:hover {
+  background: rgba(30, 50, 95, 0.35);
+}
+
+/* Selected + event day */
+.calendar-theme .react-calendar__tile--active.has-event {
+  background: #1e325f;
+  color: #ffffff;
+}
