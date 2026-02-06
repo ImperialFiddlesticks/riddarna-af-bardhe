@@ -1,4 +1,7 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { createFileRoute } from "@tanstack/react-router";
+import { KNIGHTS } from "@/data/knights";
+import { KnightPreviewCard } from "@/components/KnightPreviewCard";
 
 export const Route = createFileRoute("/om-oss/")({
   component: RouteComponent,
@@ -10,22 +13,32 @@ function RouteComponent() {
       <div className="top-image">
         <h1>Om oss</h1>
       </div>
-      <div className="history-container">
+      <div className="relative bg-[#e2d1b0] -mt-[60px] z-0 flex flex-col items-center">
         <div className="history-box">
-          <div className="history-text">
-            <h2>Vår Historia</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.{" "}
-            </p>
-          </div>
-          <img
-            alt="Riddare på hästar"
-            className="history-img"
-            src="/public/föreningen.jpg"
-          />
+          <Card className="bg-transparent border-0 shadow-none">
+            <CardContent className="p-0 flex flex-col lg:flex-row items-center gap-6">
+              <div className="text-center lg:text-left lg:flex-[1]">
+                <CardHeader className="p-0">
+                  <CardTitle className="text-xl sm:text-3xl font-['Cormorant_SC'] mb-2 text-[#242424]">
+                    Vår Historia
+                  </CardTitle>
+                </CardHeader>
+                <p className="text-[#505050] leading-relaxed">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur.
+                </p>
+              </div>
+              <img
+                alt="Riddare på hästar"
+                src="/public/föreningen.jpg"
+                className="w-full max-w-[600px] lg:flex-[2] aspect-[16/10]  object-cover shadow-md"
+              />
+            </CardContent>
+          </Card>
         </div>
       </div>
 
@@ -36,69 +49,14 @@ function RouteComponent() {
           src="/torn-edge-dark.png"
         />
 
-        <div className="knight-box">
-          <h1 className="section-headline">Riddare</h1>
-          <div className="knight-wrapper">
-            <div className="knight">
-              <img
-                src="/stormanåhl.jpg"
-                alt="Storman Åhl"
-                className="knight-img"
-              />
-              <div className="knight-text">
-                <h2>Storman Åhl</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <ul>
-                  <li>Namn: Rickard Åhl</li>
-                  <li>Favoritvapen: Svärd</li>
-                </ul>
-              </div>
-            </div>
-            <div className="knight">
-              <img
-                src="/riddareapalle.jpg"
-                alt="Riddaren af Apalle"
-                className="knight-img"
-              />
-              <div className="knight-text">
-                <h2>Riddaren af Apalle</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <ul>
-                  <li>Namn: Camilla Åhl</li>
-                  <li>Favoritvapen: Svärd</li>
-                </ul>
-              </div>
-            </div>
-            <div className="knight">
-              <img
-                src="/korpenöga.jpeg"
-                alt="Korp Enöga"
-                className="knight-img"
-              />
-              <div className="knight-text">
-                <h2>Riddare Korp Enöga</h2>
-                <p>Ett öga räcker – resten är överkurs!</p>
-                <ul>
-                  <li>Namn: Susanne Henriksson</li>
-                  <li>Favoritvapen: Svärd</li>
-                </ul>
-              </div>
-            </div>
-            <div className="knight">
-              <img
-                src="/lejonetfrånnorden.jpg"
-                alt="Lejonet Från Norden"
-                className="knight-img"
-              />
-              <div className="knight-text">
-                <h2>Lejonet från Norden</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <ul>
-                  <li>Namn: Kim Andersen</li>
-                  <li>Favoritvapen: Svärd</li>
-                </ul>
-              </div>
-            </div>
+        <div className="max-w-5xl mx-auto px-6 py-17 z-20">
+          <h1 className=" text-[#242424] font-['Cinzel'] text-5xl text-center mb-5">
+            Riddare
+          </h1>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {KNIGHTS.map((k) => (
+              <KnightPreviewCard key={k.id} knight={k} />
+            ))}
           </div>
         </div>
       </div>

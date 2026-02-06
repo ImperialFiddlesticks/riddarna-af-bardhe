@@ -14,6 +14,7 @@ import { Route as OmOssIndexRouteImport } from './routes/om-oss/index'
 import { Route as KalenderIndexRouteImport } from './routes/kalender/index'
 import { Route as FChar246reningenIndexRouteImport } from './routes/föreningen/index'
 import { Route as EvenemangIndexRouteImport } from './routes/evenemang/index'
+import { Route as RiddareKnightIdRouteImport } from './routes/riddare/$knightId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,9 +41,15 @@ const EvenemangIndexRoute = EvenemangIndexRouteImport.update({
   path: '/evenemang/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RiddareKnightIdRoute = RiddareKnightIdRouteImport.update({
+  id: '/riddare/$knightId',
+  path: '/riddare/$knightId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/riddare/$knightId': typeof RiddareKnightIdRoute
   '/evenemang/': typeof EvenemangIndexRoute
   '/föreningen/': typeof FChar246reningenIndexRoute
   '/kalender/': typeof KalenderIndexRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/riddare/$knightId': typeof RiddareKnightIdRoute
   '/evenemang': typeof EvenemangIndexRoute
   '/föreningen': typeof FChar246reningenIndexRoute
   '/kalender': typeof KalenderIndexRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/riddare/$knightId': typeof RiddareKnightIdRoute
   '/evenemang/': typeof EvenemangIndexRoute
   '/föreningen/': typeof FChar246reningenIndexRoute
   '/kalender/': typeof KalenderIndexRoute
@@ -65,12 +74,25 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/evenemang/' | '/föreningen/' | '/kalender/' | '/om-oss/'
+  fullPaths:
+    | '/'
+    | '/riddare/$knightId'
+    | '/evenemang/'
+    | '/föreningen/'
+    | '/kalender/'
+    | '/om-oss/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/evenemang' | '/föreningen' | '/kalender' | '/om-oss'
+  to:
+    | '/'
+    | '/riddare/$knightId'
+    | '/evenemang'
+    | '/föreningen'
+    | '/kalender'
+    | '/om-oss'
   id:
     | '__root__'
     | '/'
+    | '/riddare/$knightId'
     | '/evenemang/'
     | '/föreningen/'
     | '/kalender/'
@@ -79,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  RiddareKnightIdRoute: typeof RiddareKnightIdRoute
   EvenemangIndexRoute: typeof EvenemangIndexRoute
   FChar246reningenIndexRoute: typeof FChar246reningenIndexRoute
   KalenderIndexRoute: typeof KalenderIndexRoute
@@ -122,11 +145,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EvenemangIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/riddare/$knightId': {
+      id: '/riddare/$knightId'
+      path: '/riddare/$knightId'
+      fullPath: '/riddare/$knightId'
+      preLoaderRoute: typeof RiddareKnightIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  RiddareKnightIdRoute: RiddareKnightIdRoute,
   EvenemangIndexRoute: EvenemangIndexRoute,
   FChar246reningenIndexRoute: FChar246reningenIndexRoute,
   KalenderIndexRoute: KalenderIndexRoute,
