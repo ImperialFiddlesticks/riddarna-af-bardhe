@@ -10,59 +10,42 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
+import { EVENTS, type ISODateString, type EventItem } from "@/data/events";
 
 export const Route = createFileRoute("/kalender/")({
   component: RouteComponent,
 });
 
-type ISODateString = `${number}-${number}-${number}`;
-
-type EventItem = {
-  id: string;
-  title: string;
-  date: ISODateString;
-  location?: string;
-  description?: string;
-};
-
-const EVENTS = [
-  {
-    id: "1",
-    title: "Knight Training",
-    date: "2026-03-12",
-    location: "Courtyard",
-    description:
-      "Öppen träning med svärd, sköld och rustning. Alla nivåer välkomna.",
-  },
-  {
-    id: "2",
-    title: "Spring Tournament",
-    date: "2026-04-02",
-    location: "Great Hall",
-    description: "Intern turnering med publik. Rustning krävs.",
-  },
-] as const satisfies readonly EventItem[];
-
-function toKey(date: Date): ISODateString {
+function toISO(date: Date): ISODateString {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, "0");
   const d = String(date.getDate()).padStart(2, "0");
   return `${y}-${m}-${d}` as ISODateString;
 }
+function parseISO(s: ISODateString): Date {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
 
 function RouteComponent() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   const eventsByDay = useMemo(() => {
-    const map = new Map();
+    const map = new Map<ISODateString, EventItem[]>();
+
     for (const e of EVENTS) {
-      const k = e.date;
-      map.set(k, [...(map.get(k) ?? []), e]);
+      const start = parseISO(e.start);
+      const end = parseISO(e.end ?? e.start);
+
+      for (let dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
+        const key = toISO(dt);
+        map.set(key, [...(map.get(key) ?? []), e]);
+      }
     }
     return map;
   }, []);
 
-  const selectedKey = toKey(selectedDate);
+  const selectedKey = toISO(selectedDate);
   const selectedEvents = eventsByDay.get(selectedKey) ?? [];
 
   return (
@@ -95,11 +78,11 @@ function RouteComponent() {
               }}
               tileClassName={({ date, view }) => {
                 if (view !== "month") return null;
-                return eventsByDay.has(toKey(date)) ? "has-event" : null;
+                return eventsByDay.has(toISO(date)) ? "has-event" : null;
               }}
               tileContent={({ date, view }) => {
                 if (view !== "month") return null;
-                return eventsByDay.has(toKey(date)) ? (
+                return eventsByDay.has(toISO(date)) ? (
                   <div aria-label="Event day">⚔️</div>
                 ) : null;
               }}
