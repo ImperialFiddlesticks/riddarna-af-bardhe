@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Outlet, createRootRoute, Link } from "@tanstack/react-router";
 import { NavButton } from "@/components/NavButton";
+import { Header } from "@/components/Header";
 export const Route = createRootRoute({
   component: RootComponent,
 });
@@ -8,24 +9,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <React.Fragment>
-      <header>
-        {" "}
-        <div className="header-name">
-          <img
-            alt="shield logo"
-            src="/bardhelogo.png"
-            className="header-logo"
-          />
-          <h2>Riddarna af Bardhe</h2>
-        </div>
-        <div className="header-nav">
-          <NavButton to="/">Hem</NavButton>
-          <NavButton to="/om-oss">Om oss</NavButton>
-          <NavButton to="/evenemang">Evenemang</NavButton>
-          <NavButton to="/föreningen">Föreningen</NavButton>
-          <NavButton to="/kalender">Kalender</NavButton>
-        </div>
-      </header>
+      <Header></Header>
 
       <Outlet />
       <footer>

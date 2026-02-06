@@ -55,57 +55,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #1e325f;
-  height: 100px;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-.header-name {
-  display: flex;
-  align-items: center;
-}
-.header-name h2 {
-  font-family: "Cinzel", serif;
-  font-size: 2rem;
-  background: linear-gradient(
-    to bottom,
-    #505050 0%,
-    /* dark at top */ #f3f2f2 50%,
-    /* light in the middle */ #707070 100% /* darker at bottom */
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.header-logo {
-  margin: 1rem;
-  height: 75px;
-}
-.header-nav {
-  display: flex;
-  align-items: center;
-}
-.nav-button {
-  border: none;
-  background-color: #1e325f;
-  padding: 1rem;
-  font-size: 1.4rem;
-  color: #cfcfcf;
-  font-family: "Cormorant SC", serif;
-  text-decoration: none;
-}
-.nav-button:hover {
-  transform: scale(1.1);
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  transition: all 0.2s ease;
-}
-
 .top-image {
   width: 100%;
   height: auto;
