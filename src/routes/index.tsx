@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -12,34 +13,54 @@ function RouteComponent() {
       </div>
       <div className="info-container">
         <div className="info-box">
-          <div className="info-content">
-            <img alt="riddare" src="/riddare.jpg" className="info-img" />
-            <div className="info-text">
-              <h2>Föreningen</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
-              </p>
-            </div>
-          </div>
-          <div className="info-content">
-            <div className="info-text">
-              <h2>Tornerspel</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
-              </p>
-            </div>
-            <img alt="riddare" src="/riddare2.jpg" className="info-img" />
-          </div>
+          <Card className="bg-transparent border-0 shadow-none">
+            <CardContent className="p-0 flex flex-col lg:flex-row items-center gap-6">
+              <img
+                alt="riddare"
+                src="/riddare.jpg"
+                className="w-full lg:w-[420px] h-[240px] lg:h-[260px] object-cover shadow-md"
+              />
+              <div className="text-center lg:text-left">
+                <CardHeader className="p-0">
+                  <CardTitle className="text-xl sm:text-2xl font-['Cormorant_SC'] mb-2 text-[#242424]">
+                    Föreningen
+                  </CardTitle>
+                </CardHeader>
+                <p className="text-[#505050]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="bg-transparent border-0 shadow-none">
+            <CardContent className="p-0 flex flex-col lg:flex-row items-center gap-6">
+              <div className="text-center lg:text-left">
+                <CardHeader className="p-0">
+                  <CardTitle className="text-xl sm:text-2xl font-['Cormorant_SC'] mb-2 text-[#242424]">
+                    Tornerspel
+                  </CardTitle>
+                </CardHeader>
+                <p className="text-[#505050]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur.
+                </p>
+              </div>
+              <img
+                alt="riddare"
+                src="/riddare2.jpg"
+                className="w-full lg:w-[420px] h-[240px] lg:h-[260px] object-cover shadow-md"
+              />
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
