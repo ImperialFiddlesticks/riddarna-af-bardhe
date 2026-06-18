@@ -1,12 +1,9 @@
 @import url(/src/routes/om-oss/om-oss.css);
 @import url(/src/routes/kalender/kalender.css);
+@import url(/src/routes/föreningen/föreningen.css);
 @import "tailwindcss";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
-
-* {
-  box-sizing: border-box;
-}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -14,13 +11,26 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Brand tokens */
+  --color-navy: #1e325f;
+  --color-parchment: #e2d1b0;
+  --color-parchment-light: #f7ecd8;
+  --color-tan: #b89973;
+  --color-parchment-mid: #d5c09d;
+  --color-text-muted: #cfcfcf;
+  --color-gold: #c9a84c;
+  --color-dark: #242424;
+  --color-text-body: #2d2d2d;
+  --font-display: "Cinzel", serif;
+  --font-heading: "Cormorant SC", serif;
+  --page-padding-x: clamp(1.5rem, 6vw, 8rem);
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -58,7 +68,7 @@
 .top-image {
   width: 100%;
   height: auto;
-  min-height: 600px;
+  min-height: clamp(280px, 45vw, 600px);
   background-image: url("/public/riddareapalle1.png");
   background-size: cover;
   background-position: center bottom;
@@ -72,11 +82,11 @@
 
 .top-image h1 {
   font-family: "Cinzel", serif;
-  font-size: 4rem;
+  font-size: clamp(1.8rem, 5vw, 4rem);
   color: white;
   text-shadow:
     2px 2px 4px rgba(0, 0, 0, 0.7),
-    0 0 10px rgba(255, 255, 255, 0.2); /* subtle glow */
+    0 0 10px rgba(255, 255, 255, 0.2);
   letter-spacing: 1px;
   line-height: 1.1;
 }
@@ -88,7 +98,8 @@
   justify-content: center;
 
   z-index: 500;
-  padding: 150px;
+  padding-block: 150px;
+  padding-inline: var(--page-padding-x);
   margin-top: -60px;
   position: relative;
 }
@@ -102,8 +113,12 @@
   background-size: 250px;
 }
 
+.page-content {
+  padding-inline: var(--page-padding-x);
+}
+
 footer {
-  background-color: #1e325f;
+  background-color: var(--color-navy);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -131,20 +146,19 @@ footer h3 {
   align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 @theme inline {
+  --color-navy: var(--color-navy);
+  --color-parchment: var(--color-parchment);
+  --color-parchment-light: var(--color-parchment-light);
+  --color-tan: var(--color-tan);
+  --color-parchment-mid: var(--color-parchment-mid);
+  --color-text-muted: var(--color-text-muted);
+  --color-gold: var(--color-gold);
+  --color-dark: var(--color-dark);
+  --color-text-body: var(--color-text-body);
+  --font-display: var(--font-display);
+  --font-heading: var(--font-heading);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -226,4 +240,18 @@ footer h3 {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.section-headline {
+  font-family: "Cormorant SC", serif;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.subsection-headline {
+  font-family: "Cormorant SC", serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.2;
 }

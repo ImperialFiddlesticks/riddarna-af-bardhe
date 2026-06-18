@@ -1,0 +1,9 @@
+.torn-edge-light {
+  position: absolute;
+
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 100;
+  bottom: -75px;
+}

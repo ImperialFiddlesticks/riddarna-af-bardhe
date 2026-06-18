@@ -45,6 +45,15 @@ export const KNIGHTS: Knight[] = [
     name: "Kim Andersen",
     favoriteWeapon: "Svärd",
   },
+  {
+    id: "riddare-ormvrak",
+    title: "Riddare Ormvråk",
+    imageSrc: "/ormvråk.jpg",
+    imageAlt: "Riddare Ormvråk",
+    tagline: "Den där är min!",
+    name: "Robin Bleckert",
+    favoriteWeapon: "Långsvärd",
+  },
 ];
 
 export function getKnightById(id: string): Knight | undefined {

@@ -22,11 +22,11 @@ function RouteComponent() {
               />
               <div className="text-center lg:text-left">
                 <CardHeader className="p-0">
-                  <CardTitle className="text-xl sm:text-2xl font-['Cormorant_SC'] mb-2 text-[#242424]">
+                  <CardTitle className="section-headline mb-2 text-dark">
                     Föreningen
                   </CardTitle>
                 </CardHeader>
-                <p className="text-[#505050]">
+                <p className="text-text-body">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -41,11 +41,11 @@ function RouteComponent() {
             <CardContent className="p-0 flex flex-col lg:flex-row items-center gap-6">
               <div className="text-center lg:text-left">
                 <CardHeader className="p-0">
-                  <CardTitle className="text-xl sm:text-2xl font-['Cormorant_SC'] mb-2 text-[#242424]">
+                  <CardTitle className="section-headline mb-2 text-dark">
                     Tornerspel
                   </CardTitle>
                 </CardHeader>
-                <p className="text-[#505050]">
+                <p className="text-text-body">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco

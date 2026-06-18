@@ -53,9 +53,9 @@ function RouteComponent() {
       <div className="top-image">
         <h1>Kalender</h1>
       </div>
-      <div className="relative bg-[#e2d1b0] -mt-[60px] z-0 flex flex-col items-center">
-        <div className="px-10 py-10 w-full max-w-[500px] flex flex-col items-center text-[#242424] text-center mb-14 mt-13">
-          <h2 className="text-xl sm:text-3xl font-semibold font-['Cormorant_SC'] mb-2">
+      <div className="relative bg-parchment -mt-[60px] z-0 flex flex-col items-center">
+        <div className="px-10 py-10 w-full max-w-[500px] flex flex-col items-center text-dark text-center mb-14 mt-13">
+          <h2 className="section-headline mb-2">
             Upplev Medeltiden med oss!
           </h2>
           <p className="leading-relaxed">
@@ -65,7 +65,7 @@ function RouteComponent() {
             aliquip ex ea commodo consequat.
           </p>
         </div>
-        <div className="w-full flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center px-6 pb-10">
+        <div className="w-full flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center page-content pb-10">
           {/* Calendar column */}
           <div className="calendar calendar-theme w-full max-w-[420px]">
             <Calendar
@@ -91,7 +91,7 @@ function RouteComponent() {
 
           {/* Event info column */}
           <div className="w-full max-w-[420px]">
-            <h2 className="mb-3 text-xl font-semibold font-['Cormorant_SC'] text-[#242424]">
+            <h2 className="mb-3 text-xl font-semibold font-['Cormorant_SC'] text-dark">
               Evenemang den{" "}
               {selectedDate.toLocaleDateString("sv-SE", {
                 day: "numeric",
@@ -101,24 +101,24 @@ function RouteComponent() {
             </h2>
 
             {selectedEvents.length === 0 ? (
-              <Card className="bg-[#f7ecd8] text-[#242424] shadow-lg border-2 border-[#1e325f]/35">
+              <Card className="bg-parchment-light text-dark shadow-lg border-2 border-navy/35">
                 <CardHeader>
                   <CardTitle className="text-lg font-['Cormorant_SC']">
                     Inga evenemang
                   </CardTitle>
-                  <CardDescription className="text-[#242424]/80">
+                  <CardDescription className="text-dark/80">
                     Det finns inga planerade evenemang för detta datum.
                   </CardDescription>
                 </CardHeader>
               </Card>
             ) : (
-              <Card className="bg-[#f7ecd8] text-[#242424] shadow-lg border-2 border-[#1e325f]/35">
+              <Card className="bg-parchment-light text-dark shadow-lg border-2 border-navy/35">
                 <CardHeader>
                   <CardTitle className="text-lg font-['Cormorant_SC']">
                     {selectedEvents[0].title}
                   </CardTitle>
                   {selectedEvents[0].location && (
-                    <CardDescription className="text-[#242424]/80">
+                    <CardDescription className="text-dark/80">
                       Plats: {selectedEvents[0].location}
                     </CardDescription>
                   )}

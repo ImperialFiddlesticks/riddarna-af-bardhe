@@ -2,8 +2,8 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 type NavButtonProps = {
-  to: string;
-  children: ReactNode;
+  readonly to: string;
+  readonly children: ReactNode;
 };
 
 export function NavButton({ to, children }: NavButtonProps) {

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 export const Route = createRootRoute({
   component: RootComponent,
 });
@@ -12,25 +13,7 @@ function RootComponent() {
       <Header></Header>
 
       <Outlet />
-      <footer>
-        <div className="footer-section">
-          <h3>Om oss</h3>
-          <ul>
-            <li>Evenemang</li>
-            <li>Föreningen</li>
-            <li>Kalender</li>
-          </ul>
-        </div>
-        <img alt="shield logo" src="/bardhelogo.png" className="header-logo" />
-        <div className="footer-section">
-          <h3>Kontakta Oss</h3>
-          <ul>
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>Kontakt</li>
-          </ul>
-        </div>
-      </footer>
+      <Footer />
     </React.Fragment>
   );
 }

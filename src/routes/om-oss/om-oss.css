@@ -13,9 +13,20 @@
   color: #505050;
   display: flex;
   align-items: center;
-  max-width: 900px;
-  margin-top: 150px;
-  margin-bottom: 150px;
+
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding-inline: var(--page-padding-x);
+}
+.history-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("/shield-transparent.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px;
 }
 
 .torn-edge-dark {
@@ -24,34 +35,79 @@
   left: 0;
   width: 100%;
   height: auto;
-  z-index: 10;
-  top: -90px;
+  z-index: 1000;
+  top: -5px;
+}
+.decorative-border {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
 }
 .knight-container {
-  background-color: #b89973;
+  background-color: #131f36;
 
   height: auto;
   position: relative;
   z-index: 1;
-  /* overflow: hidden; */
-  padding-top: 90px;
+}
+.horse-container {
+  background-color: var(--color-parchment);
+  height: auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.horse-box {
+  background-image: url("/knighttransparent2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 350px;
+}
+.instructor-box {
+  padding-bottom: 50px;
+}
+.info-section {
+  background-color: #131f36;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 50px;
+}
+.star-divider {
+  margin: 50px;
 }
 
 @media (max-width: 1024px) {
   .torn-edge-dark {
-    top: -60px;
+    top: 0px;
+  }
+  .decorative-border {
+    top: -15px;
   }
   .knight-container {
     padding-top: 60px;
+  }
+  .history-text {
+    min-height: 340px;
   }
 }
 
 /* Phones */
 @media (max-width: 640px) {
-  .torn-edge-dark {
-    top: -30px;
-  }
   .knight-container {
     padding-top: 30px;
+  }
+  .decorative-border {
+    top: -7px;
+  }
+  .history-text {
+    min-height: 340px;
+  }
+  .horse-box {
+    background: none;
   }
 }

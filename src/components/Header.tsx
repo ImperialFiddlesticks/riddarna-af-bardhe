@@ -14,8 +14,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-[1000] w-full bg-[#1e325f]">
-      <div className="mx-auto flex h-[72px] md:h-[90px] max-w-6xl items-center justify-between px-3 md:px-4">
+    <header className="sticky top-0 z-1000 w-full bg-navy">
+      <div className="flex h-18 md:h-22.5 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-2 md:gap-3">
           <img
             alt="shield logo"
@@ -71,7 +71,7 @@ export function Header() {
                 bg-[#f7ecd8]
                 shadow-lg
                 overflow-hidden
-                z-[1000]"
+                z-1000"
               role="menu"
             >
               {NavItems.map((item) => (
