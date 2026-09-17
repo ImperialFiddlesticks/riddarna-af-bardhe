@@ -19,8 +19,12 @@ function RouteComponent() {
             <div className="history-text text-center lg:text-left lg:flex-1">
               <h2 className="section-headline text-dark mb-4">Om föreningen</h2>
               <p className="text-text-body leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Föreningen startades 2012 av Rickard Åhl, som efter många år av
+                tornerspelsridande med en annan förening, Celeres Nordica, ville
+                skapa något eget och då med anknytning till familjens gård och
+                ridskola i Bålsta. Sedan dess har konceptet förfinats till vad
+                det är idag. eiusmod tempor incididunt ut labore et dolore magna
+                aliqua.
               </p>
             </div>
             <div className="w-full lg:flex-2 aspect-16/10 bg-tan/30 shadow-md" />
@@ -37,8 +41,19 @@ function RouteComponent() {
                 Medlemskap
               </h2>
               <p className="text-text-muted leading-relaxed mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Vi är i färd med att bredda föreningens verksamhet till att inte
+                enbart kretsa kring de delar som knyter an till hästarna, utan
+                också fokusera på annat, som tillsammans med nuvarande
+                verksamhet bättre kommer att knyta ihop vår medeltida säck… Vi
+                välkomnar alla som har ett intresse för medeltiden i allmänhet
+                och i synnerhet dig som kanske är speciellt intresserad av
+                medeltida matlagning, musik, artisteri, markstrid m.m.
+              </p>
+              <p className="text-text-muted leading-relaxed mb-6">
+                Tveka inte att kontakta oss i Riddarna af Bardhe. Då vi är en
+                förening under uppbyggnad finns goda möjligheter att vara med
+                och påverka inriktning och innehåll i verksamheten även för nya
+                medlemmar.
               </p>
               <Button href="mailto:" variant="secondary">
                 Bli medlem

@@ -28,7 +28,7 @@ function RouteComponent() {
                       Vår Historia
                     </CardTitle>
                   </CardHeader>
-                  <p className="text-text-body leading-relaxed">
+                  <p className="text-text-body leading-relaxed mb-4">
                     Riddarna af Bardhe är en ideell förening med en ovanlig
                     möjlighet i sitt hjärta: att som riddare träna och tävla i
                     tornerspel — utan att äga en egen häst. Det är troligtvis
@@ -41,34 +41,29 @@ function RouteComponent() {
                     Bålsta. Sedan dess har konceptet växt och förfinats till vad
                     det är idag.
                   </p>
+                  <p className="text-text-body leading-relaxed ">
+                    Inte alla vill — eller kan — rida som riddare, och det är
+                    helt okej.
+                  </p>
+                  <p>
+                    {" "}
+                    <br />I Riddarna af Bardhe finns det plats för alla, oavsett
+                    om du vill sitta i sadeln, stötta från sidan eller bara dela
+                    intresset för medeltiden. Det som förenar oss är kärleken
+                    till levande historia och tornerspel. Föreningens mål
+                    Tillsammans med Apalle gård arrangera och delta i olika
+                    former av tornerspel, inklusive riksmästerskapet. Erbjuda
+                    träning och aktiviteter för både ridande och icke-ridande
+                    medlemmar. Sprida kunskap om nordeuropeisk medeltid under
+                    perioden 1000–1500 e.Kr. och vara en naturlig samlingsplats
+                    för alla med intresse för levande historia.
+                  </p>{" "}
                 </div>
                 <img
                   alt="Riddare på hästar"
-                  src="/public/föreningen.jpg"
-                  className="w-full max-w-150 lg:flex-2 aspect-16/10 object-cover shadow-md"
+                  src="/föreningen.jpg"
+                  className="history-image shadow-md"
                 />
-              </CardContent>
-            </Card>
-
-            <Card className="bg-transparent border-0 shadow-none flex flex-col">
-              <CardContent className="p-0 mt-10">
-                <p className="text-text-body leading-relaxed ">
-                  Inte alla vill — eller kan — rida som riddare, och det är helt
-                  okej.
-                </p>
-                <p>
-                  {" "}
-                  <br />I Riddarna af Bardhe finns det plats för alla, oavsett
-                  om du vill sitta i sadeln, stötta från sidan eller bara dela
-                  intresset för medeltiden. Det som förenar oss är kärleken till
-                  levande historia och tornerspel. Föreningens mål Tillsammans
-                  med Apalle gård arrangera och delta i olika former av
-                  tornerspel, inklusive riksmästerskapet. Erbjuda träning och
-                  aktiviteter för både ridande och icke-ridande medlemmar.
-                  Sprida kunskap om nordeuropeisk medeltid under perioden
-                  1000–1500 e.Kr. och vara en naturlig samlingsplats för alla
-                  med intresse för levande historia.
-                </p>{" "}
               </CardContent>
             </Card>
           </div>
@@ -86,11 +81,11 @@ function RouteComponent() {
           className="torn-edge-dark"
           src="/arc-divider.svg"
         /> */}
-        <img
+        {/* <img
           alt="decoration"
           className="decorative-border"
           src="/decorative-divider.svg"
-        />
+        /> */}
 
         <div className="max-w-5xl mx-auto page-content py-17 z-20">
           <h1 className="section-headline text-text-muted text-center mb-5">
@@ -105,11 +100,11 @@ function RouteComponent() {
       </div>
 
       <div className="horse-container">
-        <img
+        {/* <img
           alt="decoration"
           className="decorative-border"
           src="/decorative-divider.svg"
-        />
+        /> */}
         <div className="horse-box">
           <div className="max-w-5xl mx-auto page-content py-17 z-20 flex flex-col items-center">
             <h1 className="section-headline text-dark text-center mb-2">

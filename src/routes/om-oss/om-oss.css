@@ -28,6 +28,13 @@
   background-position: center;
   background-size: 300px;
 }
+.history-image {
+  align-self: center;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
 
 .torn-edge-dark {
   position: absolute;

@@ -1,6 +1,7 @@
 @import url(/src/routes/om-oss/om-oss.css);
 @import url(/src/routes/kalender/kalender.css);
 @import url(/src/routes/föreningen/föreningen.css);
+@import url(/src/routes/blogg/blogg.css);
 @import "tailwindcss";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));

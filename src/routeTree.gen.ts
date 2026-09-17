@@ -14,7 +14,9 @@ import { Route as OmOssIndexRouteImport } from './routes/om-oss/index'
 import { Route as KalenderIndexRouteImport } from './routes/kalender/index'
 import { Route as FChar246reningenIndexRouteImport } from './routes/föreningen/index'
 import { Route as EvenemangIndexRouteImport } from './routes/evenemang/index'
+import { Route as BloggIndexRouteImport } from './routes/blogg/index'
 import { Route as RiddareKnightIdRouteImport } from './routes/riddare/$knightId'
+import { Route as BloggSlugRouteImport } from './routes/blogg/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -41,15 +43,27 @@ const EvenemangIndexRoute = EvenemangIndexRouteImport.update({
   path: '/evenemang/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BloggIndexRoute = BloggIndexRouteImport.update({
+  id: '/blogg/',
+  path: '/blogg/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RiddareKnightIdRoute = RiddareKnightIdRouteImport.update({
   id: '/riddare/$knightId',
   path: '/riddare/$knightId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BloggSlugRoute = BloggSlugRouteImport.update({
+  id: '/blogg/$slug',
+  path: '/blogg/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blogg/$slug': typeof BloggSlugRoute
   '/riddare/$knightId': typeof RiddareKnightIdRoute
+  '/blogg/': typeof BloggIndexRoute
   '/evenemang/': typeof EvenemangIndexRoute
   '/föreningen/': typeof FChar246reningenIndexRoute
   '/kalender/': typeof KalenderIndexRoute
@@ -57,7 +71,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blogg/$slug': typeof BloggSlugRoute
   '/riddare/$knightId': typeof RiddareKnightIdRoute
+  '/blogg': typeof BloggIndexRoute
   '/evenemang': typeof EvenemangIndexRoute
   '/föreningen': typeof FChar246reningenIndexRoute
   '/kalender': typeof KalenderIndexRoute
@@ -66,7 +82,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blogg/$slug': typeof BloggSlugRoute
   '/riddare/$knightId': typeof RiddareKnightIdRoute
+  '/blogg/': typeof BloggIndexRoute
   '/evenemang/': typeof EvenemangIndexRoute
   '/föreningen/': typeof FChar246reningenIndexRoute
   '/kalender/': typeof KalenderIndexRoute
@@ -76,7 +94,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blogg/$slug'
     | '/riddare/$knightId'
+    | '/blogg/'
     | '/evenemang/'
     | '/föreningen/'
     | '/kalender/'
@@ -84,7 +104,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/blogg/$slug'
     | '/riddare/$knightId'
+    | '/blogg'
     | '/evenemang'
     | '/föreningen'
     | '/kalender'
@@ -92,7 +114,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/blogg/$slug'
     | '/riddare/$knightId'
+    | '/blogg/'
     | '/evenemang/'
     | '/föreningen/'
     | '/kalender/'
@@ -101,7 +125,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BloggSlugRoute: typeof BloggSlugRoute
   RiddareKnightIdRoute: typeof RiddareKnightIdRoute
+  BloggIndexRoute: typeof BloggIndexRoute
   EvenemangIndexRoute: typeof EvenemangIndexRoute
   FChar246reningenIndexRoute: typeof FChar246reningenIndexRoute
   KalenderIndexRoute: typeof KalenderIndexRoute
@@ -145,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EvenemangIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blogg/': {
+      id: '/blogg/'
+      path: '/blogg'
+      fullPath: '/blogg/'
+      preLoaderRoute: typeof BloggIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/riddare/$knightId': {
       id: '/riddare/$knightId'
       path: '/riddare/$knightId'
@@ -152,12 +185,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RiddareKnightIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blogg/$slug': {
+      id: '/blogg/$slug'
+      path: '/blogg/$slug'
+      fullPath: '/blogg/$slug'
+      preLoaderRoute: typeof BloggSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BloggSlugRoute: BloggSlugRoute,
   RiddareKnightIdRoute: RiddareKnightIdRoute,
+  BloggIndexRoute: BloggIndexRoute,
   EvenemangIndexRoute: EvenemangIndexRoute,
   FChar246reningenIndexRoute: FChar246reningenIndexRoute,
   KalenderIndexRoute: KalenderIndexRoute,
